@@ -4,3 +4,5 @@
 - Validácia v PHPčku na serveri pred uložením dát.
 - Uloženie registrácie do mysql datbuľky s názvom users.
 - Jednoduchá stránka, kde sa do tabuľky vypíšu zaregistrovaní užívatelia.
+
+### Pre automaticke naplnenie databasy pouzijte prikaz: php artisan migrate --seed
