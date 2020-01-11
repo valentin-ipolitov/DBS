@@ -1,0 +1,36 @@
+.users {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: @bg_color;
+    padding: 20px;
+    border-radius: 5px;
+
+    table {
+        margin-top: 30px;
+        border-collapse: collapse;
+        border-radius: 5px;
+
+        tr:nth-child(even) {
+            background-color: @bg_color2;
+        }
+
+        tr:hover {
+            background-color: @bg_hover_color;
+        }
+
+        tr:first-child {
+            background-color: @btn_color;
+            color: white;
+            &:hover {
+                background-color: @btn_color;
+            }
+        }
+
+        td, th {
+            padding: 10px 20px;
+        }
+
+    }
+}

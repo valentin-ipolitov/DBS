@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+* a {
+  text-decoration: none;
+}
+.flex {
+  display: -webkit-box;
+  display: flex;
+}
+.wrap {
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 20px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  margin-top: 30px;
+}
+.btn_primary {
+  background-color: #12cc12;
+  padding: 10px 30px;
+  color: white;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+.btn_primary:hover {
+  color: black;
+  box-shadow: 0 8px 10px 0px rgba(10, 39, 207, 0.2);
+}
+div.buttons {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.add_user {
+  width: 50%;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+}
+.add_user form input {
+  margin: 10px 0;
+}
+.add_user form input[type=text] {
+  width: 100%;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.add_user form input[type=submit] {
+  width: 100%;
+  padding: 15px 20px;
+}
+.add_user form input[type=radio] {
+  margin: 5px;
+}
+.users {
+  width: 70%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+}
+.users table {
+  margin-top: 30px;
+  border-collapse: collapse;
+  border-radius: 5px;
+}
+.users table tr:nth-child(even) {
+  background-color: #c7c5c5;
+}
+.users table tr:hover {
+  background-color: #afcf95;
+}
+.users table tr:first-child {
+  background-color: #12cc12;
+  color: white;
+}
+.users table tr:first-child:hover {
+  background-color: #12cc12;
+}
+.users table td,
+.users table th {
+  padding: 10px 20px;
+}

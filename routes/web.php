@@ -12,5 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/users', function () {
+    return view('pages.users');
+});
+
+Route::get('/addUser', function () {
+    return view('pages.addUser');
+});
+
