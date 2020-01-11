@@ -93,92 +93,48 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-// form dom formdata
-// const email
-// pevent druhoj
 var form = document.getElementById('form');
-var first_name = document.getElementById('first_name');
-var last_name = document.getElementById('last_name');
-var email = document.getElementById('email');
-var birth_date = document.getElementById('birth_date');
-var EMAIL_REGEXP = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; // function requarie d for kavicki string true 
-
-var required = function required(value) {
-  return value !== '';
-};
-
-var isEmail = RegExp.prototype.test.bind(EMAIL_REGEXP);
-var validationRules = {
-  'first_name': [required],
-  'email': [required, isEmail]
-};
+var EMAIL_REGEXP = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 form.addEventListener('submit', function (e) {
-  e.preventDefault(); // let result = validateForm();
-  // if (result) form.submit();
-
-  var fd = new FormData(form);
-
-  var _loop = function _loop(option) {
-    var rules = validationRules[option];
-    var result = rules.map(function (fn) {
-      return fn.call(null, fd.get(option));
-    }).every(function (e) {
-      return e.result;
-    });
-
-    if (!result) {
-      e.preventDefault();
-      console.log('Form failed');
-      return {
-        v: void 0
-      };
-    }
-  };
-
-  for (var option in validationRules) {
-    var _ret = _loop(option);
-
-    if (_typeof(_ret) === "object") return _ret.v;
-  }
+  var result = validateForm();
+  if (!result) e.preventDefault();
 });
 
 function validateForm() {
   var result = 1;
 
-  if (first_name.value === '') {
-    setErrorFor(first_name, 'First name is requird!');
+  if (form.first_name.value === '') {
+    setErrorFor(form.first_name, 'First name is requird!');
     result = 0;
   } else {
-    setSuccessFor(first_name);
+    setSuccessFor(form.first_name);
   }
 
-  if (last_name.value === '') {
-    setErrorFor(last_name, 'Last name is required!');
+  if (form.last_name.value === '') {
+    setErrorFor(form.last_name, 'Last name is required!');
     result = 0;
   } else {
-    setSuccessFor(last_name);
+    setSuccessFor(form.last_name);
   }
 
-  if (email.value === '') {
-    setErrorFor(email, 'Email is required!');
+  if (form.email.value === '') {
+    setErrorFor(form.email, 'Email is required!');
     result = 0;
-  } else if (!isEmail(email.value)) {
-    setErrorFor(email, 'Email is invalid!');
+  } else if (!isEmail(form.email.value)) {
+    setErrorFor(form.email, 'Email is invalid!');
     result = 0;
   } else {
-    setSuccessFor(email);
+    setSuccessFor(form.email);
   }
 
-  if (birth_date.value === '') {
-    setErrorFor(birth_date, 'Birthday is requird!');
+  if (form.birth_date.value === '') {
+    setErrorFor(form.birth_date, 'Birthday is requird!');
     result = 0;
-  } else if (Date.now() < Date.parse(birth_date.value)) {
-    setErrorFor(birth_date, 'Birthday is invalid!');
+  } else if (Date.now() < Date.parse(form.birth_date.value)) {
+    setErrorFor(form.birth_date, 'Birthday is invalid!');
     result = 0;
   } else {
-    setSuccessFor(birth_date);
+    setSuccessFor(form.birth_date);
   }
 
   return result;
@@ -196,9 +152,11 @@ function setSuccessFor(input) {
   var formControl = input.parentElement;
   var small = formControl.querySelector('small');
   small.innerText = "";
-} // function isEmail(email) {
-// 	return EMAIL_REGEXP.test(email);
-// }
+}
+
+function isEmail(email) {
+  return EMAIL_REGEXP.test(email);
+}
 
 /***/ }),
 
