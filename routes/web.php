@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/users', function () {
-    return view('pages.users');
-});
+Route::get('/users', 'UserController@index');
 
 Route::get('/addUser', function () {
     return view('pages.addUser');

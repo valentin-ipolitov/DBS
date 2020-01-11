@@ -11,24 +11,14 @@
                 <th> Birth date </th>
                 <th> Gender </th>
             </tr>
-            <tr>
-                <td> Valentyn Ipolitov </td>
-                <td> sv.vartey@gmail.com </td>
-                <td> 20.02.1999 </td>
-                <td> Male </td>
-            </tr>
-            <tr>
-                <td> Valentyn Ipolitov </td>
-                <td> sv.vartey@gmail.com </td>
-                <td> 20.02.1999 </td>
-                <td> Male </td>
-            </tr>
-            <tr>
-                <td> Valentyn Ipolitov </td>
-                <td> sv.vartey@gmail.com </td>
-                <td> 20.02.1999 </td>
-                <td> Male </td>
-            </tr>
+            @foreach ($users as $user)
+                <tr>
+                    <td> {{ $user->name }} </td>
+                    <td> {{ $user->email }} </td>
+                    <td> {{ $user->birtDate }} </td>
+                    <td> {{ $user->gender }} </td>
+                </tr>
+            @endforeach
         </table>
     </div>
 @endsection
