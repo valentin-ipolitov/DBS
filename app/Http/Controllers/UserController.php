@@ -7,11 +7,12 @@ use App\User;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Redirect;
 
+
 class UserController extends Controller
 {
     public function index()
     {   
-        $users = User::all();
+        $users = User::orderBy('created_at','desc')->paginate(10);
 
         return view("pages.users", [
             'users' => $users,

@@ -7,6 +7,11 @@
     padding: 20px;
     border-radius: 5px;
 
+    &>div {
+        display: flex;
+        justify-content: center;
+    }
+
     @media screen and (max-width: 1024px) {
        width: 90%;
     }
@@ -120,7 +125,28 @@
         td:nth-of-type(2):before { content: "Email:"; }
         td:nth-of-type(3):before { content: "Birthday:"; }
         td:nth-of-type(4):before { content: "Gender:"; }
-    }
+    }   
+}
 
+.pagination {
+    li {
+        float: left;
+        margin: 0 10px;
+        padding: 5px 10px;
+        background-color: @btn_color;
+        border-radius: 5px;
+        color: white;
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+        transition-duration: 0.3s;
+        a {
+            color: white;
+        }
+        &:hover, a:hover {
+            color: black;
+            box-shadow: 0 8px 10px 0px rgba(10, 39, 207, 0.2);
+        }
     
+    }
+    text-decoration: none;
+    list-style: none;
 }
