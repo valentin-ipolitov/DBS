@@ -93,15 +93,55 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+// form dom formdata
+// const email
+// pevent druhoj
 var form = document.getElementById('form');
 var first_name = document.getElementById('first_name');
 var last_name = document.getElementById('last_name');
 var email = document.getElementById('email');
 var birth_date = document.getElementById('birth_date');
+var EMAIL_REGEXP = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; // function requarie d for kavicki string true 
+
+var required = function required(value) {
+  return value !== '';
+};
+
+var isEmail = RegExp.prototype.test.bind(EMAIL_REGEXP);
+var validationRules = {
+  'first_name': [required],
+  'email': [required, isEmail]
+};
 form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  var result = validateForm();
-  if (result) form.submit();
+  e.preventDefault(); // let result = validateForm();
+  // if (result) form.submit();
+
+  var fd = new FormData(form);
+
+  var _loop = function _loop(option) {
+    var rules = validationRules[option];
+    var result = rules.map(function (fn) {
+      return fn.call(null, fd.get(option));
+    }).every(function (e) {
+      return e.result;
+    });
+
+    if (!result) {
+      e.preventDefault();
+      console.log('Form failed');
+      return {
+        v: void 0
+      };
+    }
+  };
+
+  for (var option in validationRules) {
+    var _ret = _loop(option);
+
+    if (_typeof(_ret) === "object") return _ret.v;
+  }
 });
 
 function validateForm() {
@@ -156,11 +196,9 @@ function setSuccessFor(input) {
   var formControl = input.parentElement;
   var small = formControl.querySelector('small');
   small.innerText = "";
-}
-
-function isEmail(email) {
-  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-}
+} // function isEmail(email) {
+// 	return EMAIL_REGEXP.test(email);
+// }
 
 /***/ }),
 

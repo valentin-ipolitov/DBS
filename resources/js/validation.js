@@ -1,15 +1,40 @@
+// form dom formdata
+// const email
+// pevent druhoj
+
 const form = document.getElementById('form');
 const first_name = document.getElementById('first_name');
 const last_name = document.getElementById('last_name');
 const email = document.getElementById('email');
 const birth_date = document.getElementById('birth_date');
+const EMAIL_REGEXP = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+
+// function requarie d for kavicki string true 
+const required = (value) => value !== '';
+const isEmail = RegExp.prototype.test.bind(EMAIL_REGEXP);
+
+const validationRules = {
+	'first_name': [ required ],
+	'email': [ required, isEmail ]
+}
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
 	
-	let result = validateForm();
-	if (result) form.submit();
+	// let result = validateForm();
+	// if (result) form.submit();
+	const fd = new FormData(form);
+	for (let option in validationRules) {
+		let rules = validationRules[option];
+		let result = rules.map(fn => fn.call(null, fd.get(option))).every(e => e.result);
+
+		if (!result) {
+			e.preventDefault();
+			console.log('Form failed');
+			return;
+		}
+	}
 });
 
 function validateForm() {	
@@ -67,6 +92,6 @@ function setSuccessFor(input) {
 	small.innerText = "";
 }
 	
-function isEmail(email) {
-	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-}
+// function isEmail(email) {
+// 	return EMAIL_REGEXP.test(email);
+// }
