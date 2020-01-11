@@ -21,3 +21,5 @@ Route::get('/addUser', function () {
     return view('pages.addUser');
 });
 
+Route::post('/addUser', 'UserController@store');
+

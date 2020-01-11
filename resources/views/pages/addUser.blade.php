@@ -2,8 +2,18 @@
 
 
 @section('content')
+
     <div class="add_user">
-        <form action="">
+        @if (!empty($errors->all()))
+            <div class="errors">
+                @foreach ($errors->all() as $error)
+                {{ $error }} <br>
+                @endforeach
+            </div>
+        @endif
+
+        <form method="POST" action="/addUser">
+            @csrf
             <label for="first_name"> First name </label>
             <input type="text" id="first_name" name="first_name" placeholder="First Name">
 
