@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@push('scripts')
+    <script src="{{ asset('js/validation.js') }}" defer></script>
+@endpush
 
 @section('content')
 
@@ -12,25 +15,40 @@
             </div>
         @endif
 
-        <form method="POST" action="/addUser">
+        <form id="form" method="POST" action="/addUser">
             @csrf
-            <label for="first_name"> First name </label>
-            <input type="text" id="first_name" name="first_name" placeholder="First Name">
+            <div>
+                <label for="first_name"> First name </label> <br>
+                <small></small>
+                <input type="text" id="first_name" name="first_name" placeholder="First Name">
+            </div>
 
-            <label for="last_name"> Last name </label>
-            <input type="text" id="last_name" name="last_name" placeholder="Last Name">
+            <div>
+                <label for="last_name"> Last name </label>
+                <br>
+                <small></small>
+                <input type="text" id="last_name" name="last_name" placeholder="Last Name">
+            </div>
 
-            <label for="email"> Email </label>
-            <input type="text" id="email" name="email" placeholder="example@gmail.com">
+            <div>
+                <label for="email"> Email </label><br>
+                <small></small>
+                <input type="text" id="email" name="email" placeholder="example@gmail.com">
+            </div>
 
+            <div>
+                <label for="birth_date"> Birth date </label><br>
+                <small></small>
+                <input type="date" id="birth_date" name="birth_date"> <br>
+            </div>
 
-            <label for="birth_date"> Birth date </label>
-            <input type="date" id="birth_date" name="birth_date"> <br>
-
-            <label for="gender"> Gender </label> <br>
-            
-            <input type="radio" id="male" name="gender" value="male"> <label for="male">Male</label> <br>
-            <input type="radio"id="female" name="gender" value="female">  <label for="female">Female</label> <br>
+            <div>
+                <label for="gender" id="gender"> Gender </label> <br>
+                <small></small><br>
+                
+                <input type="radio" id="male" name="gender" value="male"> <label for="male">Male</label> <br>
+                <input type="radio" id="female" name="gender" value="female">  <label for="female">Female</label> <br>
+            </div>
 
             <input class="btn_primary" type="submit" value="submit">
         </form>

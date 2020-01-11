@@ -85,6 +85,14 @@ div.buttons {
 .add_user form input[type=radio] {
   margin: 5px;
 }
+.add_user form .validation_error {
+  border: 1px solid red;
+}
+.add_user form small {
+  margin-bottom: 20px;
+  color: rgba(243, 57, 57, 0.5);
+  font-weight: bold;
+}
 .add_user .errors {
   display: -webkit-box;
   display: flex;
