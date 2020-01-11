@@ -46,11 +46,28 @@ div.buttons {
   align-content: center;
   flex-wrap: wrap;
 }
+@media screen and (max-width: 768px) {
+  div.buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+  }
+}
 .add_user {
   width: 50%;
   background-color: #f2f2f2;
   padding: 20px;
   border-radius: 5px;
+}
+@media screen and (max-width: 1024px) {
+  .add_user {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .add_user {
+    width: 100%;
+  }
 }
 .add_user form input {
   margin: 10px 0;
@@ -95,6 +112,20 @@ div.buttons {
   padding: 20px;
   border-radius: 5px;
 }
+@media screen and (max-width: 1024px) {
+  .users {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .users {
+    width: 100%;
+    background-color: rgba(89, 201, 15, 0.918);
+  }
+  .users h1 {
+    text-align: center;
+  }
+}
 .users table {
   margin-top: 30px;
   border-collapse: collapse;
@@ -106,14 +137,93 @@ div.buttons {
 .users table tr:hover {
   background-color: #afcf95;
 }
-.users table tr:first-child {
+.users table thead {
   background-color: #12cc12;
   color: white;
 }
-.users table tr:first-child:hover {
+.users table thead:hover {
   background-color: #12cc12;
 }
 .users table td,
 .users table th {
   padding: 10px 20px;
+}
+@media screen and (max-width: 500px) {
+  .users caption {
+    font-size: 20px;
+    color: white;
+  }
+  .users table,
+  .users thead,
+  .users tbody,
+  .users th,
+  .users td,
+  .users tr {
+    display: block;
+    font-size: 20px;
+  }
+  .users thead tr {
+    border: 2px solid white;
+  }
+  .users thead tr th {
+    border-bottom: 2px solid white;
+  }
+  .users tr {
+    border: 2px solid #12cc12;
+    margin-top: 10px;
+  }
+  .users td {
+    border: none;
+    border-bottom: 1px dashed #12cc12;
+    text-align: center;
+    position: relative;
+  }
+}
+@media screen and (max-width: 768px) {
+  .users table > caption {
+    font-size: 20px;
+    color: white;
+  }
+  .users table,
+  .users thead,
+  .users tbody,
+  .users th,
+  .users td,
+  .users tr {
+    display: block;
+    font-size: 20px;
+  }
+  .users thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  .users tr {
+    border: 2px solid #12cc12;
+    margin-top: 10px;
+    background-color: #f2f2f2;
+  }
+  .users td {
+    border: none;
+    border-bottom: 1px dashed #12cc12;
+    text-align: center;
+    position: relative;
+  }
+  .users td:before {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .users td:nth-of-type(1):before {
+    content: "Name:";
+  }
+  .users td:nth-of-type(2):before {
+    content: "Email:";
+  }
+  .users td:nth-of-type(3):before {
+    content: "Birthday:";
+  }
+  .users td:nth-of-type(4):before {
+    content: "Gender:";
+  }
 }
