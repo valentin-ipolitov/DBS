@@ -42,7 +42,7 @@ class UserController extends Controller
         $user->save();
 
         return view('pages.users', [
-            'users' => User::all()
+            'users' => User::paginate(10)
         ]);
     }
 }

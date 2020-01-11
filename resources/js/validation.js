@@ -42,7 +42,11 @@ function validateForm() {
     if(birth_date.value === '') {
 		setErrorFor(birth_date, 'Birthday is requird!');
 		result = 0;
-	} else {
+	} else if(Date.now() < Date.parse(birth_date.value)) {
+		setErrorFor(birth_date, 'Birthday is invalid!');
+		result = 0;
+	} 
+	else {
 		setSuccessFor(birth_date);
 	}
 

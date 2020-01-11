@@ -39,7 +39,7 @@
                 
                 <div>
                     <label for="birth_date"> Birth date </label><br>
-                    <small></small>
+                    <small></small> <br>
                     <input type="date" id="birth_date" name="birth_date"> <br>
                 </div>
                 
