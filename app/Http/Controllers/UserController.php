@@ -41,8 +41,6 @@ class UserController extends Controller
         $user->gender = $request->input('gender');
         $user->save();
 
-        return view('pages.users', [
-            'users' => User::paginate(10)
-        ]);
+        return redirect('users');
     }
 }
