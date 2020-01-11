@@ -24,5 +24,6 @@
                 @endforeach
             </tbody>
         </table>
+        <a class="btn_primary" href="/addUser"> Add new User </a>
     </div>
 @endsection
