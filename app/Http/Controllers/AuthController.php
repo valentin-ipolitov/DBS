@@ -42,8 +42,11 @@ class AuthController extends Controller
         // Correct credentials
         if (Hash::check($password, $hashed_password_from_db))
         {
-            session(['id' => $user->id]);
-            return view('main-page');
+            session([
+                'id' => $user->id,
+                'user' => $user
+                ]);
+            return redirect('/main-page');
         }
         // Wrong credentials
         else {

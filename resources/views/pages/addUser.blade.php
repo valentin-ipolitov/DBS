@@ -38,6 +38,12 @@
                 </div>
                 
                 <div>
+                    <label for="email"> Password </label><br>
+                    <small></small>
+                    <input type="password" id="password" name="password" placeholder="Password">
+                </div>
+                
+                <div>
                     <label for="birth_date"> Birth date </label><br>
                     <small></small> <br>
                     <input type="date" id="birth_date" name="birth_date"> <br>

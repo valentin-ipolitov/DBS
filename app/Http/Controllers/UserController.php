@@ -26,6 +26,7 @@ class UserController extends Controller
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
             'birth_date' => 'required|date',
         ]);
 
@@ -37,6 +38,7 @@ class UserController extends Controller
         $name = $request->input('first_name')." ".$request->input('last_name');
         $user->name = $name;
         $user->email = $request->input('email');
+        $user->password = $request->input('password');
         $user->birthDate = $request->input('birth_date');
         $user->gender = $request->input('gender');
         $user->save();

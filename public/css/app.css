@@ -21,6 +21,15 @@
           justify-content: center;
   margin-top: 30px;
 }
+.main-container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+          align-items: center;
+  align-content: center;
+}
 .btn_primary {
   background-color: #12cc12;
   padding: 10px 30px;
@@ -34,6 +43,13 @@
 .btn_primary:hover {
   color: black;
   box-shadow: 0 8px 10px 0px rgba(10, 39, 207, 0.2);
+}
+p,
+a,
+li {
+  font-family: Opnen-sans, sans-serif;
+  font-size: 21px;
+  color: #161616;
 }
 div.buttons {
   -webkit-box-orient: horizontal;
@@ -276,4 +292,62 @@ div.buttons {
 .pagination li a:hover {
   color: black;
   box-shadow: 0 8px 10px 0px rgba(10, 39, 207, 0.2);
+}
+.sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 300px;
+  height: 100vh;
+  background-color: #F2F2F2;
+  position: relative;
+}
+.sidebar .sidebar-header {
+  background-color: #12CC11;
+  box-shadow: 0 4px 10px 0px rgba(10, 39, 207, 0.2);
+  height: 50px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  align-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+.sidebar .sidebar-header a {
+  color: white;
+  font-size: 1.5em;
+}
+.sidebar .sidebar-content ul li {
+  padding: 5px 10px;
+  border-bottom: 1px solid #525050;
+}
+.sidebar .sidebar-content ul li:hover {
+  background-color: #afcf95;
+}
+.sidebar .sidebar-content ul li:nth-child(even) {
+  background-color: #c7c5c5;
+}
+.sidebar .sidebar-footer {
+  height: 45px;
+  padding: 10px;
+  width: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  align-content: center;
+  background-color: #12CC11;
+  box-shadow: 0 -4px 10px 0px rgba(10, 39, 207, 0.2);
+  position: absolute;
+  bottom: 0;
+}
+.sidebar .sidebar-footer p {
+  color: white;
+  text-align: center;
+}
+.main-page p.welcome {
+  text-align: center;
+  font-size: 30px;
 }

@@ -26,8 +26,11 @@
         </p>
    @endif
     
-   <div class="wrap">
-       @yield('content')
+   <div class="main-container">
+       @include('layouts.sidebar')
+       <div class="wrap">
+           @yield('content')
+       </div>
    </div>
 
 </body>

@@ -30,5 +30,9 @@ Route::group(['middleware' => ['isAuth']], function () {
     });
     
     Route::post('/addUser', 'UserController@store');
+
+    Route::get('/main-page', function () {
+        return view('pages.main_page');
+    });
 });
 
