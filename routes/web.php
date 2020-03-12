@@ -15,11 +15,20 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/users', 'UserController@index');
+Route::post('/login', 'AuthController@login');
+Route::post('/logout', 'AuthController@logout');
+Route::get('/registration', 'AuthController@registration');
+Route::post('/registration', 'AuthController@store');
 
-Route::get('/addUser', function () {
-    return view('pages.addUser');
+// Auth
+Route::group(['middleware' => ['isAuth']], function () {
+
+    Route::get('/users', 'UserController@index');
+    
+    Route::get('/addUser', function () {
+        return view('pages.addUser');
+    });
+    
+    Route::post('/addUser', 'UserController@store');
 });
-
-Route::post('/addUser', 'UserController@store');
 

@@ -167,7 +167,7 @@ function isEmail(email) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ipolit/Desktop/Zadanie/resources/js/validation.js */"./resources/js/validation.js");
+module.exports = __webpack_require__(/*! /Users/ipolit/Desktop/DBS/resources/js/validation.js */"./resources/js/validation.js");
 
 
 /***/ })
