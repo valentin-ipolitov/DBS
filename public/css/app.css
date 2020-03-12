@@ -101,7 +101,8 @@ div.buttons {
 .add_user form input {
   margin: 10px 0;
 }
-.add_user form input[type=text] {
+.add_user form input[type=text],
+.add_user form input[type=password] {
   width: 100%;
   padding: 10px 20px;
   border: 1px solid #ccc;
