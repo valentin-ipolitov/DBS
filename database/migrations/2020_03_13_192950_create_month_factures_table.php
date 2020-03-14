@@ -15,8 +15,9 @@ class CreateMonthFacturesTable extends Migration
     {
         Schema::create('month_factures', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('employee_id')->unsigned()->index();
             $table->foreign('employee_id')
-                  ->reference('id')->on('employees');
+                  ->references('id')->on('employees');
             $table->string('month');
             $table->bigInteger('final_km');
             $table->bigInteger('final_summ');

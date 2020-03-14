@@ -15,16 +15,18 @@ class CreateRacesTable extends Migration
     {
         Schema::create('races', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('employee_id')->unsigned()->index();
             $table->foreign('employee_id')
-                  ->reference('id')->on('employees');
+                  ->references('id')->on('employees');
             $table->longText('race_point');
             $table->float('distance', 8, 2);
             $table->point('src');	
             $table->point('dist');
             $table->dateTime('from');	
             $table->dateTime('untill');
+            $table->bigInteger('facture_id')->unsigned()->index();
             $table->foreign('facture_id')
-                  ->reference('id')->on('factures');
+                  ->references('id')->on('factures');
             $table->timestamps();
         });
     }

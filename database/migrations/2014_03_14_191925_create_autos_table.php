@@ -18,8 +18,9 @@ class CreateAutosTable extends Migration
             $table->boolean('isFree')
                   ->default(true);	
             $table->bigInteger('flue_consumption');
+            $table->string('flue_type');
             $table->foreign('flue_type')
-                  ->reference('type')->on('flues');
+                  ->references('type')->on('flues');
             $table->timestamps();
         });
     }

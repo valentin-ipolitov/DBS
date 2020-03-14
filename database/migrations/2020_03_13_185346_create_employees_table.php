@@ -15,15 +15,16 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('auto_reg_number');
             $table-> foreign('auto_reg_number')
-                  -> reference('ref_number')->on('autos')
-                  -> onDelete('cascade');
+                  -> references('reg_number')->on('autos');
+            $table->bigInteger('driver_license_id')->unsigned()->index();
             $table-> foreign('driver_license_id')
-                  -> reference('id')->on('driving_licenses')
-                  -> onDelete('cascade');
+                  -> references('id')->on('driving_licenses');
             $table->string('phone_number');
+            $table->bigInteger('user_id')->unsigned()->index();
             $table-> foreign('user_id')
-                  -> reference('id')->on('users');
+                  -> references('id')->on('users');
             $table->timestamps();
         });
     }
