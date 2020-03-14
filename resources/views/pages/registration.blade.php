@@ -43,20 +43,6 @@
                     <input type="password" id="password" name="password" placeholder="Password">
                 </div>
                 
-                <div>
-                    <label for="birth_date"> Birth date </label><br>
-                    <small></small> <br>
-                    <input type="date" id="birth_date" name="birth_date"> <br>
-                </div>
-                
-                <div>
-                    <label for="gender" id="gender"> Gender </label> <br>
-                    <small></small><br>
-                    
-                    <input type="radio" id="male" name="gender" value="male"> <label for="male">Male</label> <br>
-                    <input type="radio" id="female" name="gender" value="female">  <label for="female">Female</label> <br>
-                </div>
-                
                 <input class="btn_primary" type="submit" value="Registrate Me">
             </form>
         </div>

@@ -21,7 +21,6 @@ $factory->define(User::class, function (Faker $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm',
-        'gender' => $faker->randomElement(['male', 'famale']),
-        'birthDate' => $faker->dateTimeThisMonth()->format('Y-m-d'),
+        'role_id' => 1
     ];
 });

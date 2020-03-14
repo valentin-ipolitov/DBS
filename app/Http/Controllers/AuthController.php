@@ -76,7 +76,6 @@ class AuthController extends Controller
             'last_name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
-            'birth_date' => 'required|date',
         ]);
 
         if ($validator->fails()) {
@@ -88,8 +87,7 @@ class AuthController extends Controller
         $user->name = $name;
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
-        $user->birthDate = $request->input('birth_date');
-        $user->gender = $request->input('gender');
+        $user->role_id = 1;
         $user->save();
 
         return redirect('users');
