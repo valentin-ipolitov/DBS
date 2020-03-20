@@ -39,9 +39,29 @@
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
+  font-size: 16px;
+}
+.btn_blue {
+  background-color: #3131ff;
+}
+.btn_blue:hover {
+  background-color: #1818ff;
+}
+.btn_100 {
+  width: 100%;
+  padding: 10px 30px;
+  margin: 0;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+.btn_100 a {
+  font-size: 16px;
+  color: white;
+  text-align: center;
 }
 .btn_primary:hover {
-  color: black;
   box-shadow: 0 8px 10px 0px rgba(10, 39, 207, 0.2);
 }
 p,
@@ -50,6 +70,9 @@ li {
   font-family: Opnen-sans, sans-serif;
   font-size: 21px;
   color: #161616;
+}
+.links {
+  margin-top: 25px;
 }
 div.buttons {
   -webkit-box-orient: horizontal;
@@ -110,7 +133,7 @@ div.buttons {
 }
 .add_user form input[type=submit] {
   width: 100%;
-  padding: 15px 20px;
+  padding: 10px 20px;
 }
 .add_user form input[type=radio] {
   margin: 5px;
@@ -139,10 +162,11 @@ div.buttons {
 }
 .users {
   width: 70%;
+  min-height: 600px;
   display: -webkit-box;
   display: flex;
-  -webkit-box-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
@@ -155,6 +179,9 @@ div.buttons {
   display: flex;
   -webkit-box-pack: center;
           justify-content: center;
+  -webkit-box-align: start;
+          align-items: flex-start;
+  align-content: flex-start;
 }
 @media screen and (max-width: 1024px) {
   .users {
@@ -263,12 +290,6 @@ div.buttons {
   }
   .users td:nth-of-type(2):before {
     content: "Email:";
-  }
-  .users td:nth-of-type(3):before {
-    content: "Birthday:";
-  }
-  .users td:nth-of-type(4):before {
-    content: "Gender:";
   }
 }
 .pagination {

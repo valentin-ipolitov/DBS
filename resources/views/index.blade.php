@@ -44,7 +44,11 @@
                     
                     <input class="btn_primary" type="submit" value="Log In">
                 </form>
-                <a href="/registration">Registration</a>
+                <a href="/registration" >
+                    <div class="btn_primary btn_blue btn_100">
+                        Registration
+                    </div>
+                </a>
             </div>
         </div>
     </div>

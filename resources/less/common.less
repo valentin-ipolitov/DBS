@@ -46,10 +46,31 @@
     // box-shadow: 1px 1px black;
     box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
     transition-duration: 0.3s;
+    font-size: 16px;
+}
+
+.btn_blue {
+    background-color: rgb(49, 49, 255);
+
+    &:hover {
+        background-color: darken(rgb(49, 49, 255), 5);
+    }
+}
+
+.btn_100 {
+    width: 100%;
+    padding: 10px 30px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    a {
+        font-size: 16px;
+        color: white;
+        text-align: center;
+    }
 }
 
 .btn_primary:hover {
-    color: black;
     box-shadow: 0 8px 10px 0px rgba(10, 39, 207, 0.2);
 }
 
@@ -59,4 +80,8 @@ p, a, li {
     font-family: Opnen-sans, sans-serif;
     font-size: 21px;
     color: rgb(22, 22, 22);
+}
+
+.links {
+    margin-top: 25px;
 }
