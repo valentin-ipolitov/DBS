@@ -28,9 +28,9 @@ class AuthController extends Controller
         $password = $request->input('password');
 
         // Getting User password from DB
-        $user = User::where('email', $email)->first();
+        $user = DB::select(DB::raw("SELECT * FROM users WHERE email = '$email'"));
 
-        if ($user === null) {
+        if (empty($user)) {
             $errors = collect([
                 "wrong email",   
             ]);
@@ -38,14 +38,17 @@ class AuthController extends Controller
             return redirect()->back()->with('errors', $errors);
         }
 
-        $hashed_password_from_db = $user->password;
+        $hashed_password_from_db = DB::select(DB::raw("SELECT password FROM users WHERE email = '$email'"));
+        $user_id = DB::select(DB::raw("SELECT id FROM users WHERE email = '$email'"));
+        $user_name = DB::select(DB::raw("SELECT name FROM users WHERE email = '$email'"));
+        // return dd($user_name[0]->name);
 
         // Correct credentials
-        if (Hash::check($password, $hashed_password_from_db))
+        if (Hash::check($password, $hashed_password_from_db[0]->password))
         {
             session([
-                'id' => $user->id,
-                'user' => $user
+                    'id' => $user_id,
+                    'user_name' => $user_name[0]->name
                 ]);
             return redirect('/main-page');
         }

@@ -15,17 +15,7 @@
 </head>
 
 <body>
-
-   @if (Session::has('message'))
-        <?php 
-            $message = Session::get('message');
-            Session::forget('message');
-        ?>
-        <p class="info-msg{{ $message['status'] }}">
-            {{ $message['msg'] }}
-        </p>
-   @endif
-   
+       
     <div class="wrap">
         <div class="form_wrap">
             <div class="add_user">

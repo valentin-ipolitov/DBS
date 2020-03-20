@@ -4,7 +4,7 @@
 @section('content')
     <div class="main-page">
         <p class="welcome">
-            {{ session('user')->name }} <br>
+            {{ session('user_name') }} <br>
             Welcome to our system!
         </p>
     </div>

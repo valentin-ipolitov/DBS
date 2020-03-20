@@ -9,6 +9,15 @@
         </ul>
     </div>
 
+    <div class="logout">
+        <form action="/logout" id="logout-form" method="POST">
+            @csrf
+            <a href="#" onclick="document.getElementById('logout-form').submit()">
+                <div class="logout-icon">
+                </div>
+            </a>
+        </form>
+    </div>
     <div class="sidebar-footer">
         <p>
             Valentyn Ipolitov <br>
