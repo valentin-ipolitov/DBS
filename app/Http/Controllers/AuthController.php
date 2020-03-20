@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Redirect;
 use Illuminate\Support\Facades\Hash;
+use DB;
 
 class AuthController extends Controller
 {
@@ -82,13 +83,22 @@ class AuthController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $user = new User();
-        $name = $request->input('first_name')." ".$request->input('last_name');
-        $user->name = $name;
-        $user->email = $request->input('email');
-        $user->password = Hash::make($request->input('password'));
-        $user->role_id = 1;
-        $user->save();
+        // $user = new User();
+        // $name = $request->input('first_name')." ".$request->input('last_name');
+        // $user->name = $name;
+        // $user->email = $request->input('email');
+        // $user->password = Hash::make($request->input('password'));
+        // $user->role_id = 1;
+        // $user->save();
+
+        DB::table('users')->insert([
+            [
+                'name' => $request->input('first_name')." ".$request->input('last_name'),
+                'email' => $request->input('email'),
+                'password' => Hash::make($request->input('password')),
+                'role_id' => 1
+            ]
+        ]);
 
         return redirect('users');
     }
