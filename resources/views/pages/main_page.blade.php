@@ -11,7 +11,7 @@
 @section('content')
     <div class="main-page">
         <p class="welcome">
-            {{ session('user')->name }} <br>
+            {{ session('user')->name }} {{ session('user')->lastname }} <br>
             Welcome to our system!
         </p>
     </div>

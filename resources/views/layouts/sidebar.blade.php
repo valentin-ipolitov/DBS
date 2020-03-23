@@ -2,7 +2,7 @@
     <div class="sidebar-header">
         <img src="{{asset('/images/profile/icons/'.session('user')->gender.'.png')}}" alt="profile_icon">
         <div>
-            <a href="/main-page">   {{ session('user')->name }} </a>
+            <a href="/main-page">   {{ session('user')->name }} {{ session('user')->lastname }} </a>
         </div>
     </div>
 

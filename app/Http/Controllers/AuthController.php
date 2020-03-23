@@ -96,7 +96,8 @@ class AuthController extends Controller
 
         DB::table('users')->insert([
             [
-                'name' => $request->input('first_name')." ".$request->input('last_name'),
+                'name' => $request->input('first_name'),
+                'lastname' => $request->input('last_name'),
                 'email' => $request->input('email'),
                 'password' => Hash::make($request->input('password')),
                 'gender' => $request->input('gender')
