@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('sidebar-bottom-content')
-    <a href="/" >
+    <a href="#" >
         <div class="btn_primary btn_blue btn_100">
             Start to be employee
         </div>
@@ -11,7 +11,7 @@
 @section('content')
     <div class="main-page">
         <p class="welcome">
-            {{ session('user_name') }} <br>
+            {{ session('user')->name }} <br>
             Welcome to our system!
         </p>
     </div>

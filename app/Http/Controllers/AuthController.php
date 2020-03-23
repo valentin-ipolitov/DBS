@@ -41,14 +41,14 @@ class AuthController extends Controller
         $hashed_password_from_db = DB::select(DB::raw("SELECT password FROM users WHERE email = '$email'"));
         $user_id = DB::select(DB::raw("SELECT id FROM users WHERE email = '$email'"));
         $user_name = DB::select(DB::raw("SELECT name FROM users WHERE email = '$email'"));
-        // return dd($user_name[0]->name);
+        // return dd($user[0]);
 
         // Correct credentials
         if (Hash::check($password, $hashed_password_from_db[0]->password))
         {
             session([
                     'id' => $user_id,
-                    'user_name' => $user_name[0]->name
+                    'user' => $user[0]
                 ]);
             return redirect('/main-page');
         }
@@ -99,10 +99,11 @@ class AuthController extends Controller
                 'name' => $request->input('first_name')." ".$request->input('last_name'),
                 'email' => $request->input('email'),
                 'password' => Hash::make($request->input('password')),
-                'role_id' => 1
+                'role_id' => 1,
+                'gender' => $request->input('gender')
             ]
         ]);
 
-        return redirect('users');
+        return redirect('/');
     }
 }

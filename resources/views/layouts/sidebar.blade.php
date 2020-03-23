@@ -1,8 +1,8 @@
 <div class="sidebar">
     <div class="sidebar-header">
-        <img src="{{asset('/images/man.png')}}" alt="profile_icon">
+        <img src="{{asset('/images/profile/icons/'.session('user')->gender.'.png')}}" alt="profile_icon">
         <div>
-            <a href="/main-page">   {{ session('user_name') }} </a>
+            <a href="/main-page">   {{ session('user')->name }} </a>
         </div>
     </div>
 
