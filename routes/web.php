@@ -22,15 +22,6 @@ Route::post('/registration', 'AuthController@store');
 
 // Auth
 Route::group(['middleware' => ['isAuth']], function () {
-
-    Route::get('/users', 'UserController@index');
-    
-    Route::get('/addUser', function () {
-        return view('pages.addUser');
-    });
-    
-    Route::post('/addUser', 'UserController@store');
-
     Route::get('/main-page', function () {
         return view('pages.main_page');
     });
