@@ -28,6 +28,7 @@
     
    <div class="main-container">
        @include('layouts.sidebar')
+       
        <div class="wrap">
            @yield('content')
        </div>

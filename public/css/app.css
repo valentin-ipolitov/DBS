@@ -35,6 +35,7 @@
   padding: 10px 30px;
   color: white;
   margin: 20px;
+  margin-bottom: 0;
   border-radius: 5px;
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
   -webkit-transition-duration: 0.3s;
@@ -51,6 +52,7 @@
   width: 100%;
   padding: 10px 30px;
   margin: 0;
+  margin-top: 10px;
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
@@ -73,6 +75,9 @@ li {
 }
 .links {
   margin-top: 25px;
+}
+.no-top-mrg {
+  margin-top: 0 !important;
 }
 div.buttons {
   -webkit-box-orient: horizontal;
@@ -326,18 +331,31 @@ div.buttons {
 .sidebar .sidebar-header {
   background-color: #12CC11;
   box-shadow: 0 4px 10px 0px rgba(10, 39, 207, 0.2);
-  height: 50px;
   display: -webkit-box;
   display: flex;
-  -webkit-box-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
   align-content: center;
   -webkit-box-align: center;
           align-items: center;
+  padding: 10px 0;
 }
 .sidebar .sidebar-header a {
   color: white;
   font-size: 1.5em;
+}
+.sidebar .sidebar-header img {
+  width: 45px;
+  margin-left: 10px;
+}
+.sidebar .sidebar-header > div {
+  display: -webkit-box;
+  display: flex;
+  margin-left: 10px;
+  flex-wrap: wrap;
+}
+.sidebar .sidebar-content {
+  padding: 10px;
 }
 .sidebar .sidebar-content ul li {
   padding: 5px 10px;
@@ -349,22 +367,10 @@ div.buttons {
 .sidebar .sidebar-content ul li:nth-child(even) {
   background-color: #c7c5c5;
 }
-.sidebar .logout {
+.sidebar .sidebar-content .sidear-bottom-content {
   position: absolute;
-  top: 9px;
-  right: 2px;
-}
-.sidebar .logout .logout-icon {
-  width: 30px;
-  height: 30px;
-  -webkit-transition: all 1s;
-  transition: all 1s;
-  background-repeat: no-repeat;
-  background-image: url('/images/logout.svg');
-}
-.sidebar .logout .logout-icon:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  bottom: 10px;
+  width: calc(100% - 20px);
 }
 .sidebar .sidebar-footer {
   height: 45px;

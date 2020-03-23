@@ -15,8 +15,8 @@ class CreateDrivingLicensesTable extends Migration
     {
         Schema::create('driving_licenses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('surname');
+            $table->string('name', 50);
+            $table->string('surname', 50);
             $table->enum('category', ['A','B','C','D']);
             $table->timestamps();
         });

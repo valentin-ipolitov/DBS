@@ -68,7 +68,7 @@
                     <input class="btn_primary" type="submit" value="Registrate Me">
                 </form>
                 <a href="/" >
-                    <div class="btn_primary btn_blue btn_100">
+                    <div class="btn_primary btn_blue btn_100 no-top-mrg">
                         Back
                     </div>
                 </a>

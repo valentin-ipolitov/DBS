@@ -15,13 +15,13 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('auto_reg_number');
-            $table-> foreign('auto_reg_number')
-                  -> references('reg_number')->on('autos');
+            $table->string('car_reg_number');
+            $table-> foreign('car_reg_number')
+                  -> references('reg_number')->on('cars');
             $table->bigInteger('driver_license_id')->unsigned()->index();
             $table-> foreign('driver_license_id')
                   -> references('id')->on('driving_licenses');
-            $table->string('phone_number');
+            $table->string('phone_number', 13);
             $table->bigInteger('user_id')->unsigned()->index();
             $table-> foreign('user_id')
                   -> references('id')->on('users');

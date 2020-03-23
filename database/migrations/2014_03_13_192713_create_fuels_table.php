@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFacturesTable extends Migration
+class CreateFuelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateFacturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('factures', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->longText('race_point');
-            $table->bigInteger('outcome_summ');
-            $table->bigInteger('income_summ');
-            $table->bigInteger('total_salary');
+        Schema::create('fuels', function (Blueprint $table) {
+            $table->string('type')->primary();
+            $table->bigInteger('price_per_liter');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateFacturesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('factures');
+        Schema::dropIfExists('fuels');
     }
 }

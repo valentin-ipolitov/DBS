@@ -18,9 +18,9 @@ class User extends Authenticatable
         return $this->hasOne('App\Employee');
     }
 
-    public function monthFactures()
+    public function monthInvoices()
     {
-        return $this->hasMany('App\MonthFacture');
+        return $this->hasMany('App\MonthInvoice');
     }
 
     public function drivingLicense()
@@ -33,8 +33,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Race');
     }
 
-    public function auto()
+    public function car()
     {
-        return $this->hasOne('App\Auto');
+        return $this->hasOne('App\Car');
     }
 }

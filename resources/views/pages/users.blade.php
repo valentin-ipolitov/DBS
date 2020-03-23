@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('sidebar-content')
+ 
+@endsection
 
 @section('content')
     <div class="users">

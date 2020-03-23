@@ -11,8 +11,8 @@ class Race extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function facture()
+    public function invoice()
     {
-        return $this->hasOne('App\Facture');
+        return $this->hasOne('App\Invoice');
     }
 }

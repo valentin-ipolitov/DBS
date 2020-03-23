@@ -24,9 +24,9 @@ class CreateRacesTable extends Migration
             $table->point('dist');
             $table->dateTime('from');	
             $table->dateTime('untill');
-            $table->bigInteger('facture_id')->unsigned()->index();
-            $table->foreign('facture_id')
-                  ->references('id')->on('factures');
+            $table->bigInteger('invoice_id')->unsigned()->index();
+            $table->foreign('invoice_id')
+                  ->references('id')->on('invoices');
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMonthFacturesTable extends Migration
+class CreateMonthInvoicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateMonthFacturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('month_factures', function (Blueprint $table) {
+        Schema::create('month_invoices', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('employee_id')->unsigned()->index();
             $table->foreign('employee_id')
                   ->references('id')->on('employees');
-            $table->string('month');
-            $table->bigInteger('final_km');
-            $table->bigInteger('final_summ');
+            $table->string('month', 50);
+            $table->float('final_km');
+            $table->float('final_summ');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateMonthFacturesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('month_factures');
+        Schema::dropIfExists('month_invoices');
     }
 }

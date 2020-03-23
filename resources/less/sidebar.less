@@ -8,20 +8,33 @@
     .sidebar-header {
         background-color: #12CC11;
         box-shadow: 0 4px 10px 0px rgba(10, 39, 207, 0.2);
-        height: 50px;
+        // height: 60px;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-content: center;
         align-items: center;
+        padding: 10px 0;
 
         a {
             color: white;
             font-size: 1.5em;
         }
+
+        img{
+            width: 45px;
+            margin-left: 10px;
+        }
+
+        >div {
+            display: flex;
+            margin-left: 10px;
+            flex-wrap: wrap;
+        }
     }
 
     .sidebar-content {
-        
+        padding: 10px;
+
         ul {
             li {
                 padding: 5px 10px;
@@ -34,25 +47,15 @@
                 background-color: @bg_color2;
             }
         }
-    }
 
-    .logout {
-        position: absolute;
-        top: 9px;
-        right: 2px;
-
-        .logout-icon {
-            width: 30px;
-            height: 30px;
-            transition: all 1s;
-            background-repeat: no-repeat;
-            background-image: url('/images/logout.svg');
-            
-            &:hover {
-                transform: scale(1.2);
-            }
+        .sidear-bottom-content {
+            position: absolute;
+            bottom: 10px;
+            width: calc(100% - 20px);
         }
     }
+
+    
 
     .sidebar-footer {
         height: 45px;
