@@ -19,10 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email', 255)->unique();
             $table->string('password');
             $table->string('gender', 10)->nullable();
-            $table->bigInteger('role_id')->unsigned()->index();
-            $table->foreign('role_id')
-                  ->references('id')->on('roles')
-                  ->default(1); // user 
+            $table->enum('role', ['user','admin'])->default('user');;
             $table->timestamps();
         });
     }

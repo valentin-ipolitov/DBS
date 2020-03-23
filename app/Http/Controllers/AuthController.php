@@ -99,7 +99,6 @@ class AuthController extends Controller
                 'name' => $request->input('first_name')." ".$request->input('last_name'),
                 'email' => $request->input('email'),
                 'password' => Hash::make($request->input('password')),
-                'role_id' => 1,
                 'gender' => $request->input('gender')
             ]
         ]);
